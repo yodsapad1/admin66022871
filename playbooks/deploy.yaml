@@ -5,9 +5,9 @@
   tasks:
     - name: Creating the Container
       docker_container:
-         name: team33-neogym-container #docker container name
-         image: team33-neogym:latest #docker image name
+         name: 66022871html-container  # ตั้งชื่อ container ตามรหัสนิสิต
+         image: 66022871html:latest  # ใช้ image ที่ build ไปก่อนหน้า
          ports:
-           - "33:80" #เลข port ตัวแรกคือเลข  port ที่รับมาจาก browser ตัวหลังคือ  port ของ docker (คงไว้ที่ 80 ถ้าเป็น nextjs project ก็ 3000)
+           - "10001:80"  # เปลี่ยนเป็น port ในช่วง 10000-20000
          state: started
          restart: true

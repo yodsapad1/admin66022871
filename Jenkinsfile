@@ -1,24 +1,24 @@
 pipeline {
     agent any
     stages {      
-        stage("Copy file to Docker server"){
+        stage("Copy file to Docker server") {
             steps {
-				//แก้ตรง team33-neogym ให้เป็นชื่อเดียวกับ pipeline job/item ที่สร้างใน jenkins
-                sh "scp -r /var/lib/jenkins/workspace/team33-neogym/* root@13.212.94.247:~/team33-neogym"
+                // แก้ชื่อ pipeline ให้ตรงกับที่สร้างใน Jenkins
+                sh "scp -r /var/lib/jenkins/workspace/66022871html/* root@43.208.25.201:~/66022871html"
             }
         }
         
         stage("Build Docker Image") {
             steps {
-                //path yaml files
-				ansiblePlaybook playbook: '/var/lib/jenkins/workspace/team33-neogym/playbooks/build.yaml'
+                // เรียกใช้ playbook สำหรับ build image
+                ansiblePlaybook playbook: '/var/lib/jenkins/workspace/66022871html/playbooks/build.yaml'
             }    
         } 
         
         stage("Create Docker Container") {
             steps {
-                //path yaml files
-				ansiblePlaybook playbook: '/var/lib/jenkins/workspace/team33-neogym/playbooks/deploy.yaml'
+                // เรียกใช้ playbook สำหรับ deploy container
+                ansiblePlaybook playbook: '/var/lib/jenkins/workspace/66022871html/playbooks/deploy.yaml'
             }    
         } 
     }
