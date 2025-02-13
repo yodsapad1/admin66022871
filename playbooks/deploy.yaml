@@ -8,6 +8,6 @@
          name: 66022871html-container  # ตั้งชื่อ container ตามรหัสนิสิต
          image: 66022871html:latest  # ใช้ image ที่ build ไปก่อนหน้า
          ports:
-           - "10001:80"  # เปลี่ยนเป็น port ในช่วง 10000-20000
+           - "11139:80"  # เปลี่ยนเป็น port ในช่วง 10000-20000
          state: started
          restart: true
